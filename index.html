@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secciones Cónicas — Estudio Interactivo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fafafa;
+            color: #111827;
+        }
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        input[type="range"] {
+            -webkit-appearance: none;
+            background: #e5e7eb;
+            height: 6px;
+            border-radius: 999px;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #111827;
+            cursor: pointer;
+            border: 3px solid #ffffff;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-indigo-100 selection:text-indigo-900">
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="glass-nav sticky top-0 z-40 border-b border-gray-200/80">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-xl bg-gray-900 text-white flex items-center justify-center font-mono font-bold text-sm">
+                    C²
+                </div>
+                <span class="font-extrabold tracking-tight text-gray-900 text-base sm:text-lg">Secciones Cónicas</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-7 text-sm font-semibold text-gray-600">
+                <a href="#teoria" class="hover:text-gray-900 transition">Teoría</a>
+                <a href="#simulador" class="hover:text-gray-900 transition">Simulador</a>
+                <a href="#evidencias" class="hover:text-gray-900 transition">Evidencias Reales</a>
+                <a href="#ejercicios" class="hover:text-gray-900 transition">Ejercicios</a>
+                <a href="#graficacion" class="hover:text-gray-900 transition">Graficación</a>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <button type="button" onclick="toggleModal('tutorModal')" class="px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition shadow-sm">
+                    ¿Dudas?
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ENCABEZADO HERO -->
+    <header class="pt-14 pb-16 px-4 sm:px-6 border-b border-gray-200/70 bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="inline-block px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold tracking-wide mb-4">
+                Geometría Analítica • Circunferencia, Parábola y Elipse
+            </span>
+            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900 leading-tight mb-5">
+                Comprende, simula y observa las cónicas en el mundo real
+            </h1>
+            <p class="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-8">
+                Explora sus ecuaciones canónicas, ordinarias y generales, experimenta en el plano cartesiano y analiza ejemplos reales capturados en nuestro entorno.
+            </p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="#teoria" class="px-6 py-3 rounded-2xl bg-gray-900 hover:bg-gray-800 text-white text-sm font-bold transition shadow-sm">
+                    Explorar Teoría
+                </a>
+                <a href="#evidencias" class="px-6 py-3 rounded-2xl bg-white hover:bg-gray-50 text-gray-900 border border-gray-300 text-sm font-bold transition">
+                    Ver Evidencias Fotográficas
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 py-16 space-y-24">
+
+        <!-- =============================================================== -->
+        <!-- 1. TEORÍA CLARA Y TABLA COMPARATIVA                             -->
+        <!-- =============================================================== -->
+        <section id="teoria" class="space-y-10">
+            <div class="max-w-2xl">
+                <p class="text-xs font-extrabold uppercase tracking-widest text-indigo-600 mb-2">01. Fundamentos Teóricos</p>
+                <h2 class="text-3xl font-extrabold text-gray-900 tracking-tight">Definiciones y Ecuaciones</h2>
+                <p class="text-gray-600 mt-2 text-sm sm:text-base">
+                    Las secciones cónicas son curvas que resultan de intersecar un cono circular recto con un plano en distintos ángulos.
+                </p>
+            </div>
+
+            <!-- 3 Tarjetas de Definición -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-3xl p-7 border border-gray-200/90 shadow-xs hover:shadow-md transition">
+                    <div class="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold mb-5">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="9"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Circunferencia</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-5">
+                        Lugar geométrico de todos los puntos del plano que mantienen una distancia constante (<strong>radio $r$</strong>) respecto a un punto fijo llamado <strong>centro $C(h, k)$</strong>.
+                    </p>
+                    <div class="bg-gray-50 rounded-2xl p-4 border border-gray-100 space-y-2">
+                        <div class="text-[11px] font-bold uppercase text-gray-400">Ecuación Ordinaria</div>
+                        <div class="font-mono text-sm font-bold text-gray-900">(x - h)² + (y - k)² = r²</div>
+                        <div class="text-[11px] font-bold uppercase text-gray-400 pt-1">Canónica C(0,0)</div>
+                        <div class="font-mono text-xs text-gray-700">x² + y² = r²</div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-7 border border-gray-200/90 shadow-xs hover:shadow-md transition">
+                    <div class="w-10 h-10 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold mb-5">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19c2-11 14-11 16 0"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Parábola</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-5">
+                        Lugar geométrico de los puntos que equidistan de un punto fijo llamado <strong>foco $F$</strong> y de una recta fija llamada <strong>directriz</strong>. El parámetro <strong>$p$</strong> define su apertura.
+                    </p>
+                    <div class="bg-gray-50 rounded-2xl p-4 border border-gray-100 space-y-2">
+                        <div class="text-[11px] font-bold uppercase text-gray-400">Vertical / Horizontal</div>
+                        <div class="font-mono text-sm font-bold text-gray-900">(x - h)² = 4p(y - k)</div>
+                        <div class="font-mono text-xs text-gray-700">(y - k)² = 4p(x - h)</div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-7 border border-gray-200/90 shadow-xs hover:shadow-md transition">
+                    <div class="w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold mb-5">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><ellipse cx="12" cy="12" rx="10" ry="6"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Elipse</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-5">
+                        Lugar geométrico de los puntos cuya suma de distancias a dos puntos fijos (<strong>focos $F_1, F_2$</strong>) es constante e igual a $2a$. Siempre se cumple <strong>$a > b$</strong>.
+                    </p>
+                    <div class="bg-gray-50 rounded-2xl p-4 border border-gray-100 space-y-2">
+                        <div class="text-[11px] font-bold uppercase text-gray-400">Horizontal / Vertical</div>
+                        <div class="font-mono text-sm font-bold text-gray-900">(x-h)²/a² + (y-k)²/b² = 1</div>
+                        <div class="font-mono text-xs text-gray-700">(x-h)²/b² + (y-k)²/a² = 1</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabla Comparativa Completa -->
+            <div class="bg-white rounded-3xl border border-gray-200/90 overflow-hidden shadow-xs">
+                <div class="px-6 py-5 border-b border-gray-200 bg-gray-50/70 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <div>
+                        <h3 class="font-bold text-gray-900 text-base">Cuadro Resumen de Ecuaciones y Orientación</h3>
+                        <p class="text-xs text-gray-500">Comparación con la Ecuación General: <span class="font-mono font-bold text-gray-800">Ax² + Cy² + Dx + Ey + F = 0</span></p>
+                    </div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-sm">
+                        <thead>
+                            <tr class="border-b border-gray-200 text-xs font-extrabold uppercase tracking-wider text-gray-500 bg-gray-50/40">
+                                <th class="py-3.5 px-5">Cónica y Orientación</th>
+                                <th class="py-3.5 px-5">Canónica C(0,0)</th>
+                                <th class="py-3.5 px-5">Ordinaria C(h,k)</th>
+                                <th class="py-3.5 px-5">Orientación y Variables</th>
+                                <th class="py-3.5 px-5">Condición General</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100 text-gray-700">
+                            <tr class="hover:bg-gray-50/60">
+                                <td class="py-4 px-5 font-bold text-gray-900">Circunferencia</td>
+                                <td class="py-4 px-5 font-mono text-xs">x² + y² = r²</td>
+                                <td class="py-4 px-5 font-mono text-xs">(x - h)² + (y - k)² = r²</td>
+                                <td class="py-4 px-5 text-xs">Simétrica en todas direcciones. <strong>r</strong> = radio (r &gt; 0).</td>
+                                <td class="py-4 px-5 text-xs"><span class="px-2 py-0.5 rounded-md bg-blue-50 text-blue-700 font-mono font-bold">A = C</span> (mismo valor y signo)</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50/60">
+                                <td class="py-4 px-5 font-bold text-gray-900">Parábola Vertical<br><span class="text-xs font-normal text-gray-500">(Abraza al eje Y)</span></td>
+                                <td class="py-4 px-5 font-mono text-xs">x² = 4py</td>
+                                <td class="py-4 px-5 font-mono text-xs">(x - h)² = 4p(y - k)</td>
+                                <td class="py-4 px-5 text-xs">Si <strong>p &gt; 0</strong> abre arriba ↑<br>Si <strong>p &lt; 0</strong> abre abajo ↓</td>
+                                <td class="py-4 px-5 text-xs"><span class="px-2 py-0.5 rounded-md bg-amber-50 text-amber-700 font-mono font-bold">C = 0</span> (solo x² al cuadrado)</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50/60">
+                                <td class="py-4 px-5 font-bold text-gray-900">Parábola Horizontal<br><span class="text-xs font-normal text-gray-500">(Abraza al eje X)</span></td>
+                                <td class="py-4 px-5 font-mono text-xs">y² = 4px</td>
+                                <td class="py-4 px-5 font-mono text-xs">(y - k)² = 4p(x - h)</td>
+                                <td class="py-4 px-5 text-xs">Si <strong>p &gt; 0</strong> abre derecha →<br>Si <strong>p &lt; 0</strong> abre izquierda ←</td>
+                                <td class="py-4 px-5 text-xs"><span class="px-2 py-0.5 rounded-md bg-amber-50 text-amber-700 font-mono font-bold">A = 0</span> (solo y² al cuadrado)</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50/60">
+                                <td class="py-4 px-5 font-bold text-gray-900">Elipse Horizontal<br><span class="text-xs font-normal text-gray-500">(Aplastada)</span></td>
+                                <td class="py-4 px-5 font-mono text-xs">x²/a² + y²/b² = 1</td>
+                                <td class="py-4 px-5 font-mono text-xs">(x-h)²/a² + (y-k)²/b² = 1</td>
+                                <td class="py-4 px-5 text-xs">El mayor (<strong>a²</strong>) está debajo de <strong>x</strong>. Se alarga en X.</td>
+                                <td class="py-4 px-5 text-xs"><span class="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 font-mono font-bold">A ≠ C</span> (suman, distinto valor)</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50/60">
+                                <td class="py-4 px-5 font-bold text-gray-900">Elipse Vertical<br><span class="text-xs font-normal text-gray-500">(Alargada)</span></td>
+                                <td class="py-4 px-5 font-mono text-xs">x²/b² + y²/a² = 1</td>
+                                <td class="py-4 px-5 font-mono text-xs">(x-h)²/b² + (y-k)²/a² = 1</td>
+                                <td class="py-4 px-5 text-xs">El mayor (<strong>a²</strong>) está debajo de <strong>y</strong>. Se alarga en Y.</td>
+                                <td class="py-4 px-5 text-xs"><span class="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 font-mono font-bold">A ≠ C</span> (suman, distinto valor)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================== -->
+        <!-- 2. SIMULADOR MATEMÁTICO INTERACTIVO                             -->
+        <!-- =============================================================== -->
+        <section id="simulador" class="space-y-8">
+            <div class="max-w-2xl">
+                <p class="text-xs font-extrabold uppercase tracking-widest text-indigo-600 mb-2">02. Laboratorio en Vivo</p>
+                <h2 class="text-3xl font-extrabold text-gray-900 tracking-tight">Simulador Cartesiano Interactivo</h2>
+                <p class="text-gray-600 mt-2 text-sm sm:text-base">
+                    Modifica los parámetros numéricos para visualizar cómo se transforma la ecuación ordinaria, su forma general y su gráfica en el plano.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-3xl border border-gray-200/90 shadow-xs p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <!-- Controles -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="grid grid-cols-3 gap-2 p-1.5 bg-gray-100 rounded-2xl">
+                        <button type="button" onclick="setSimConic('circle')" id="sim-tab-circle" class="py-2.5 rounded-xl text-xs font-bold transition bg-gray-900 text-white shadow-xs">
+                            Circunferencia
+                        </button>
+                        <button type="button" onclick="setSimConic('parabola')" id="sim-tab-parabola" class="py-2.5 rounded-xl text-xs font-bold transition text-gray-600 hover:text-gray-900">
+                            Parábola
+                        </button>
+                        <button type="button" onclick="setSimConic('ellipse')" id="sim-tab-ellipse" class="py-2.5 rounded-xl text-xs font-bold transition text-gray-600 hover:text-gray-900">
+                            Elipse
+                        </button>
+                    </div>
+
+                    <!-- Controles Dinámicos -->
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-gray-50 p-3.5 rounded-2xl border border-gray-200/70">
+                                <div class="flex justify-between text-xs font-bold text-gray-700 mb-2">
+                                    <span>Coordenada h</span>
+                                    <span id="val-h" class="font-mono text-indigo-600">0</span>
+                                </div>
+                                <input type="range" id="input-h" min="-6" max="6" step="1" value="0" oninput="updateSim()" class="w-full">
+                            </div>
+                            <div class="bg-gray-50 p-3.5 rounded-2xl border border-gray-200/70">
+                                <div class="flex justify-between text-xs font-bold text-gray-700 mb-2">
+                                    <span>Coordenada k</span>
+                                    <span id="val-k" class="font-mono text-indigo-600">0</span>
+                                </div>
+                                <input type="range" id="input-k" min="-6" max="6" step="1" value="0" oninput="updateSim()" class="w-full">
+                            </div>
+                        </div>
+
+                        <!-- Parámetro Circunferencia -->
+                        <div id="ctrl-circle" class="bg-gray-50 p-4 rounded-2xl border border-gray-200/70">
+                            <div class="flex justify-between text-xs font-bold text-gray-700 mb-2">
+                                <span>Radio (r)</span>
+                                <span id="val-r" class="font-mono text-blue-600">4</span>
+                            </div>
+                            <input type="range" id="input-r" min="1" max="7" step="0.5" value="4" oninput="updateSim()" class="w-full">
+                        </div>
+
+                        <!-- Parámetros Parábola -->
+                        <div id="ctrl-parabola" class="hidden space-y-3">
+                            <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200/70">
+                                <div class="flex justify-between text-xs font-bold text-gray-700 mb-2">
+                                    <span>Parámetro focal (p)</span>
+                                    <span id="val-p" class="font-mono text-amber-600">1.5</span>
+                                </div>
+                                <input type="range" id="input-p" min="-3" max="3" step="0.5" value="1.5" oninput="updateSim()" class="w-full">
+                            </div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button type="button" onclick="setParaDir('vertical')" id="btn-para-v" class="py-2 rounded-xl text-xs font-bold bg-gray-900 text-white">Vertical (Eje Y)</button>
+                                <button type="button" onclick="setParaDir('horizontal')" id="btn-para-h" class="py-2 rounded-xl text-xs font-bold bg-gray-100 text-gray-600">Horizontal (Eje X)</button>
+                            </div>
+                        </div>
+
+                        <!-- Parámetros Elipse -->
+                        <div id="ctrl-ellipse" class="hidden grid grid-cols-2 gap-4">
+                            <div class="bg-gray-50 p-3.5 rounded-2xl border border-gray-200/70">
+                                <div class="flex justify-between text-xs font-bold text-gray-700 mb-2">
+                                    <span>Semieje X</span>
+                                    <span id="val-rx" class="font-mono text-emerald-600">5</span>
+                                </div>
+                                <input type="range" id="input-rx" min="1" max="7" step="0.5" value="5" oninput="updateSim()" class="w-full">
+                            </div>
+                            <div class="bg-gray-50 p-3.5 rounded-2xl border border-gray-200/70">
+                                <div class="flex justify-between text-xs font-bold text-gray-700 mb-2">
+                                    <span>Semieje Y</span>
+                                    <span id="val-ry" class="font-mono text-emerald-600">3</span>
+                                </div>
+                                <input type="range" id="input-ry" min="1" max="7" step="0.5" value="3" oninput="updateSim()" class="w-full">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ecuaciones Calculadas en Vivo -->
+                    <div class="bg-gray-900 text-white rounded-2xl p-5 space-y-3">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400">Ecuación Ordinaria</span>
+                            <div id="sim-eq-ord" class="font-mono text-base font-bold text-indigo-300 mt-0.5">x² + y² = 16</div>
+                        </div>
+                        <div class="border-t border-gray-800 pt-2.5 flex justify-between items-center text-xs">
+                            <span class="text-gray-400">Elementos clave:</span>
+                            <span id="sim-elements" class="font-mono font-semibold text-emerald-300">C(0, 0) • r = 4</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plano Cartesiano -->
+                <div class="lg:col-span-7">
+                    <div class="relative w-full aspect-square max-h-[440px] mx-auto bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden">
+                        <canvas id="simCanvas" class="w-full h-full block"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================== -->
+        <!-- 3. EVIDENCIAS FOTOGRÁFICAS REALES DEL ENTORNO                   -->
+        <!-- =============================================================== -->
+        <section id="evidencias" class="space-y-8">
+            <div class="max-w-2xl">
+                <p class="text-xs font-extrabold uppercase tracking-widest text-indigo-600 mb-2">03. Aplicación en el Entorno</p>
+                <h2 class="text-3xl font-extrabold text-gray-900 tracking-tight">Evidencias Fotográficas Reales</h2>
+                <p class="text-gray-600 mt-2 text-sm sm:text-base">
+                    Observación directa de las tres secciones cónicas en objetos cotidianos capturados esta semana.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
+                <!-- FOTO 1: CIRCUNFERENCIA -->
+                <article class="bg-white rounded-3xl border border-gray-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col">
+                    <div class="relative aspect-[4/3] bg-gray-100 overflow-hidden">
+                        <img id="photo-circle" alt="Maceta circular vista desde arriba" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-gray-900/85 text-white text-xs font-bold backdrop-blur-xs">
+                            Circunferencia
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900">Borde Superior de Maceta</h3>
+                            <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+                                Vista cenital de una maceta cilíndrica. Todo el contorno del borde mantiene exactamente la misma distancia (<strong>radio r</strong>) desde el centro geométrico del recipiente.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-gray-100 flex items-center justify-between text-xs">
+                            <span class="font-mono text-gray-500">x² + y² = r²</span>
+                            <button type="button" onclick="loadExampleToSim('circle')" class="font-bold text-indigo-600 hover:text-indigo-800">
+                                Simular →
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- FOTO 2: PARÁBOLA -->
+                <article class="bg-white rounded-3xl border border-gray-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col">
+                    <div class="relative aspect-[4/3] bg-gray-100 overflow-hidden">
+                        <img id="photo-parabola" alt="Grifo metálico curvo en forma de parábola" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-gray-900/85 text-white text-xs font-bold backdrop-blur-xs">
+                            Parábola Vertical
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900">Cuello Curvo de Grifo</h3>
+                            <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+                                El arco superior del grifo describe una <strong>parábola vertical que abre hacia abajo (p &lt; 0)</strong>, alcanzando su punto máximo en el vértice superior antes de descender.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-gray-100 flex items-center justify-between text-xs">
+                            <span class="font-mono text-gray-500">(x - h)² = 4p(y - k)</span>
+                            <button type="button" onclick="loadExampleToSim('parabola')" class="font-bold text-indigo-600 hover:text-indigo-800">
+                                Simular →
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- FOTO 3: ELIPSE -->
+                <article class="bg-white rounded-3xl border border-gray-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col">
+                    <div class="relative aspect-[4/3] bg-gray-100 overflow-hidden">
+                        <img id="photo-ellipse" alt="Lavamanos ovalado en forma de elipse" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-gray-900/85 text-white text-xs font-bold backdrop-blur-xs">
+                            Elipse
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900">Contorno de Lavamanos</h3>
+                            <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+                                La estructura ovalada del lavamanos forma una <strong>elipse</strong> con dos ejes de simetría perpendiculares: un eje mayor (<strong>2a</strong>) y un eje menor (<strong>2b</strong>).
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-gray-100 flex items-center justify-between text-xs">
+                            <span class="font-mono text-gray-500">x²/a² + y²/b² = 1</span>
+                            <button type="button" onclick="loadExampleToSim('ellipse')" class="font-bold text-indigo-600 hover:text-indigo-800">
+                                Simular →
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- =============================================================== -->
+        <!-- 4. EJERCICIOS ANALÍTICOS (GENERAL Y ELEMENTOS)                  -->
+        <!-- =============================================================== -->
+        <section id="ejercicios" class="space-y-8">
+            <div class="max-w-2xl">
+                <p class="text-xs font-extrabold uppercase tracking-widest text-indigo-600 mb-2">04. Práctica Guiada</p>
+                <h2 class="text-3xl font-extrabold text-gray-900 tracking-tight">Ejercicios de Identificación y Cálculo</h2>
+                <p class="text-gray-600 mt-2 text-sm sm:text-base">
+                    Aplica las reglas de los coeficientes A y C de la ecuación general y calcula centros, radios y parámetros focales.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-7">
+                <!-- RETO A: Ecuación General -->
+                <div class="bg-white rounded-3xl p-7 border border-gray-200/90 shadow-xs flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold">Parte A • Ecuación General</span>
+                            <span id="gen-counter" class="text-xs font-bold text-gray-400">1 / 4</span>
+                        </div>
+                        <p class="text-sm text-gray-600">Observa los coeficientes <strong class="font-mono">A</strong> y <strong class="font-mono">C</strong> e identifica qué sección cónica representa:</p>
+
+                        <div class="bg-gray-900 text-white rounded-2xl p-5 text-center">
+                            <div id="gen-eq" class="font-mono text-lg sm:text-xl font-bold tracking-wide">4x² + 4y² - 16x + 8y - 5 = 0</div>
+                        </div>
+
+                        <div id="gen-options" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5"></div>
+                        <div id="gen-feedback" class="hidden p-4 rounded-2xl text-xs leading-relaxed"></div>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <button type="button" onclick="askTutor('general')" class="text-xs font-bold text-gray-500 hover:text-indigo-600">
+                            ¿Necesitas ayuda? Preguntar
+                        </button>
+                        <button type="button" onclick="nextGenQuestion()" class="px-4 py-2 rounded-xl bg-gray-900 hover:bg-gray-800 text-white text-xs font-bold transition">
+                            Siguiente Ejercicio →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- RETO B: Hallar Centro, Radio y Valor de p -->
+                <div class="bg-white rounded-3xl p-7 border border-gray-200/90 shadow-xs flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold">Parte B • Elementos Clave</span>
+                            <span id="elem-counter" class="text-xs font-bold text-gray-400">1 / 3</span>
+                        </div>
+                        <p id="elem-prompt" class="text-sm text-gray-600">Halla las coordenadas del Centro <strong>(h, k)</strong> y el Radio <strong>r</strong>:</p>
+
+                        <div class="bg-gray-900 text-white rounded-2xl p-5 text-center">
+                            <div id="elem-eq" class="font-mono text-lg sm:text-xl font-bold">(x - 3)² + (y + 2)² = 25</div>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-3">
+                            <div>
+                                <label class="block text-[11px] font-bold text-gray-500 mb-1">h</label>
+                                <input type="number" step="any" id="ans-h" placeholder="0" class="w-full px-3 py-2.5 rounded-xl border border-gray-300 font-mono text-sm focus:outline-none focus:border-indigo-500">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-bold text-gray-500 mb-1">k</label>
+                                <input type="number" step="any" id="ans-k" placeholder="0" class="w-full px-3 py-2.5 rounded-xl border border-gray-300 font-mono text-sm focus:outline-none focus:border-indigo-500">
+                            </div>
+                            <div>
+                                <label id="lbl-third" class="block text-[11px] font-bold text-gray-500 mb-1">Radio (r)</label>
+                                <input type="number" step="any" id="ans-third" placeholder="0" class="w-full px-3 py-2.5 rounded-xl border border-gray-300 font-mono text-sm focus:outline-none focus:border-indigo-500">
+                            </div>
+                        </div>
+
+                        <button type="button" onclick="checkElemAnswer()" class="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition">
+                            Verificar Respuesta
+                        </button>
+
+                        <div id="elem-feedback" class="hidden p-4 rounded-2xl text-xs leading-relaxed"></div>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <button type="button" onclick="askTutor('elements')" class="text-xs font-bold text-gray-500 hover:text-indigo-600">
+                            ¿Dudas con los signos?
+                        </button>
+                        <button type="button" onclick="nextElemQuestion()" class="px-4 py-2 rounded-xl bg-gray-900 hover:bg-gray-800 text-white text-xs font-bold transition">
+                            Siguiente Ejercicio →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================== -->
+        <!-- 5. APARTADO PROPIO DE GRAFICACIÓN (CIRCUNFERENCIA Y ELIPSE)     -->
+        <!-- =============================================================== -->
+        <section id="graficacion" class="space-y-8">
+            <div class="max-w-2xl">
+                <p class="text-xs font-extrabold uppercase tracking-widest text-indigo-600 mb-2">05. Taller de Trazado</p>
+                <h2 class="text-3xl font-extrabold text-gray-900 tracking-tight">Laboratorio de Graficación</h2>
+                <p class="text-gray-600 mt-2 text-sm sm:text-base">
+                    Practica la graficación de <strong>Circunferencias</strong> y <strong>Elipses</strong>. Halla su centro, radio o focos y comprueba la figura directamente en su plano cartesiano.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-3xl border border-gray-200/90 shadow-xs p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <!-- Panel de Ejercicio -->
+                <div class="lg:col-span-5 space-y-5">
+                    <div class="flex gap-2">
+                        <button type="button" onclick="selectGraphEx(0)" id="gex-btn-0" class="flex-1 py-2 rounded-xl text-xs font-bold bg-gray-900 text-white">1. Circunferencia</button>
+                        <button type="button" onclick="selectGraphEx(1)" id="gex-btn-1" class="flex-1 py-2 rounded-xl text-xs font-bold bg-gray-100 text-gray-600">2. Elipse Horizontal</button>
+                        <button type="button" onclick="selectGraphEx(2)" id="gex-btn-2" class="flex-1 py-2 rounded-xl text-xs font-bold bg-gray-100 text-gray-600">3. Elipse Vertical</button>
+                    </div>
+
+                    <div class="bg-gray-900 text-white rounded-2xl p-5 space-y-1.5">
+                        <span id="gex-badge" class="text-[10px] font-bold uppercase tracking-wider text-indigo-400">Ejercicio de Circunferencia</span>
+                        <div id="gex-equation" class="font-mono text-lg font-bold">(x - 2)² + (y + 1)² = 9</div>
+                    </div>
+
+                    <!-- Entradas del estudiante -->
+                    <div class="space-y-3">
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 mb-1">Centro h</label>
+                                <input type="number" step="any" id="gex-in-h" placeholder="Ej: 2" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 font-mono text-sm focus:outline-none focus:border-indigo-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 mb-1">Centro k</label>
+                                <input type="number" step="any" id="gex-in-k" placeholder="Ej: -1" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 font-mono text-sm focus:outline-none focus:border-indigo-500">
+                            </div>
+                        </div>
+
+                        <!-- Campo Radio (si es circunferencia) -->
+                        <div id="gex-field-circle">
+                            <label class="block text-xs font-bold text-gray-700 mb-1">Radio (r)</label>
+                            <input type="number" step="any" id="gex-in-r" placeholder="Ej: 3" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 font-mono text-sm focus:outline-none focus:border-indigo-500">
+                        </div>
+
+                        <!-- Campos Elipse (a, b y distancia focal c) -->
+                        <div id="gex-field-ellipse" class="hidden space-y-3">
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-700 mb-1">Semieje mayor (a)</label>
+                                    <input type="number" step="any" id="gex-in-a" placeholder="a > b" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 font-mono text-sm focus:outline-none focus:border-indigo-500">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-700 mb-1">Semieje menor (b)</label>
+                                    <input type="number" step="any" id="gex-in-b" placeholder="b" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 font-mono text-sm focus:outline-none focus:border-indigo-500">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 mb-1">Distancia focal c = √(a² - b²)</label>
+                                <input type="number" step="any" id="gex-in-c" placeholder="Ej: 4" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 font-mono text-sm focus:outline-none focus:border-indigo-500">
+                            </div>
+                        </div>
+
+                        <button type="button" onclick="verifyAndPlotGraphEx()" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition shadow-xs">
+                            Graficar y Verificar Elementos
+                        </button>
+                    </div>
+
+                    <div id="gex-result" class="hidden p-4 rounded-2xl text-xs leading-relaxed space-y-1"></div>
+                </div>
+
+                <!-- Plano Cartesiano Propio de Graficación -->
+                <div class="lg:col-span-7">
+                    <div class="relative w-full aspect-square max-h-[440px] mx-auto bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden">
+                        <canvas id="graphExCanvas" class="w-full h-full block"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="border-t border-gray-200 bg-white py-10 px-4 text-center text-xs text-gray-500">
+        <p class="font-semibold text-gray-700">Proyecto Interactivo de Geometría Analítica — Secciones Cónicas</p>
+        <p class="mt-1">Circunferencia • Parábola • Elipse</p>
+    </footer>
+
+    <!-- =============================================================== -->
+    <!-- BOTÓN FLOTANTE DE ACCESO DIRECTO A LA CALCULADORA               -->
+    <!-- =============================================================== -->
+    <button type="button" onclick="toggleModal('calcModal')" title="Abrir Calculadora" class="fixed bottom-6 right-6 z-40 flex items-center gap-2.5 px-4 py-3.5 rounded-2xl bg-gray-900 hover:bg-indigo-600 text-white text-xs font-extrabold shadow-xl border border-white/10 transition-all hover:scale-105 active:scale-95">
+        <svg class="w-4 h-4 text-indigo-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <rect x="4" y="2" width="16" height="20" rx="3"/>
+            <line x1="8" y1="6" x2="16" y2="6"/>
+            <line x1="8" y1="10" x2="10" y2="10"/>
+            <line x1="14" y1="10" x2="16" y2="10"/>
+            <line x1="8" y1="14" x2="10" y2="14"/>
+            <line x1="14" y1="14" x2="16" y2="14"/>
+            <line x1="8" y1="18" x2="10" y2="18"/>
+            <line x1="14" y1="18" x2="16" y2="18"/>
+        </svg>
+        <span>Calculadora</span>
+    </button>
+
+    <!-- =============================================================== -->
+    <!-- MODAL CALCULADORA CIENTÍFICA / CÓNICA REAL                      -->
+    <!-- =============================================================== -->
+    <div id="calcModal" class="hidden fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4">
+        <div class="bg-gray-950 rounded-3xl max-w-xs w-full p-5 shadow-2xl border border-gray-800 text-white">
+            <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-indigo-500"></span>
+                    <h3 class="text-xs font-extrabold uppercase tracking-wider text-gray-300">Calculadora Científica</h3>
+                </div>
+                <button type="button" onclick="toggleModal('calcModal')" class="w-7 h-7 rounded-full bg-gray-800 hover:bg-gray-700 text-gray-300 font-bold text-xs transition">✕</button>
+            </div>
+
+            <!-- Pantalla Digital de la Calculadora -->
+            <div class="bg-gray-900 border border-gray-800 rounded-2xl p-3.5 mb-3 text-right">
+                <div id="calc-history" class="font-mono text-[11px] text-gray-400 h-4 overflow-hidden">0</div>
+                <input type="text" id="calc-screen" value="0" readonly class="w-full bg-transparent text-right font-mono text-2xl font-bold text-white focus:outline-none mt-0.5">
+            </div>
+
+            <!-- Botonera de Calculadora Real -->
+            <div class="grid grid-cols-4 gap-2 font-mono text-sm font-bold">
+                <button type="button" onclick="calcClear()" class="py-2.5 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 text-rose-400 transition">AC</button>
+                <button type="button" onclick="calcBackspace()" class="py-2.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-gray-300 transition">⌫</button>
+                <button type="button" onclick="calcSqrt()" class="py-2.5 rounded-xl bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-300 transition">√x</button>
+                <button type="button" onclick="calcSquare()" class="py-2.5 rounded-xl bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-300 transition">x²</button>
+
+                <button type="button" onclick="calcAppend('7')" class="py-2.5 rounded-xl bg-gray-900 hover:bg-gray-800 text-white transition">7</button>
+                <button type="button" onclick="calcAppend('8')" class="py-2.5 rounded-xl bg-gray-900 hover:bg-gray-800 text-white transition">8</button>
+                <button type="button" onclick="calcAppend('9')" class="py-2.5 rounded-xl bg-gray-900 hover:bg-gray-800 text-white transition">9</button>
+                <button type="button" onclick="calcAppend('/')" class="py-2.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-amber-400 transition">÷</button>
+
+                <button type="button" onclick="calcAppend('4')" class="py-2.5 rounded-xl bg-gray-900 hover:bg-gray-800 text-white transition">4</button>
+                <button type="button" onclick="calcAppend('5')" class="py-2.5 rounded-xl bg-gray-900 hover:bg-gray-800 text-white transition">5</button>
+                <button type="button" onclick="calcAppend('6')" class="py-2.5 rounded-xl bg-gray-900 hover:bg-gray-800 text-white transition">6</button>
+                <button type="button" onclick="calcAppend('*')" class="py-2.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-amber-400 transition">×</button>
+
+                <button type="button" onclick="calcAppend('1')" class="py-2.5 rounded-xl bg-gray-900 hover:bg-gray-800 text-white transition">1</button>
+                <button type="button" onclick="calcAppend('2')" class="py-2.5 rounded-xl bg-gray-900 hover:bg-gray-800 text-white transition">2</button>
+                <button type="button" onclick="calcAppend('3')" class="py-2.5 rounded-xl bg-gray-900 hover:bg-gray-800 text-white transition">3</button>
+                <button type="button" onclick="calcAppend('-')" class="py-2.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-amber-400 transition">−</button>
+
+                <button type="button" onclick="calcAppend('0')" class="py-2.5 rounded-xl bg-gray-900 hover:bg-gray-800 text-white transition">0</button>
+                <button type="button" onclick="calcAppend('.')" class="py-2.5 rounded-xl bg-gray-900 hover:bg-gray-800 text-white transition">.</button>
+                <button type="button" onclick="calcDiv4()" title="Dividir entre 4 (4p → p)" class="py-2.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 text-xs transition">÷4</button>
+                <button type="button" onclick="calcAppend('+')" class="py-2.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-amber-400 transition">+</button>
+
+                <button type="button" onclick="calcToggleSign()" class="py-2.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-gray-300 text-xs transition">+/−</button>
+                <button type="button" onclick="calcEquals()" class="col-span-3 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white transition shadow-lg">=</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =============================================================== -->
+    <!-- MODAL TUTOR DE DUDAS                                            -->
+    <!-- =============================================================== -->
+    <div id="tutorModal" class="hidden fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-gray-200 flex flex-col max-h-[85vh]">
+            <div class="flex items-center justify-between pb-3 border-b border-gray-100">
+                <div>
+                    <h3 class="text-base font-extrabold text-gray-900">Asistente de Dudas</h3>
+                    <p class="text-xs text-gray-500">Pregunta sobre fórmulas, signos o ejercicios</p>
+                </div>
+                <button type="button" onclick="toggleModal('tutorModal')" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold text-sm">✕</button>
+            </div>
+
+            <div id="tutor-chat" class="flex-1 overflow-y-auto py-4 space-y-3 text-xs">
+                <div class="p-3.5 rounded-2xl bg-gray-100 text-gray-800 leading-relaxed">
+                    ¡Hola! Pregúntame cualquier duda sobre cómo identificar una cónica con <strong>A</strong> y <strong>C</strong>, cómo hallar el centro <strong>(h, k)</strong>, el radio <strong>r</strong> o los focos de una elipse.
+                </div>
+            </div>
+
+            <div class="flex flex-wrap gap-1.5 pb-3">
+                <button type="button" onclick="sendQuickDoubt('¿Cómo distingo la cónica con A y C?')" class="px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 text-[11px] font-bold hover:bg-indigo-100">Regla de A y C</button>
+                <button type="button" onclick="sendQuickDoubt('¿Por qué se cambia el signo de h y k?')" class="px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 text-[11px] font-bold hover:bg-indigo-100">Signos de (h, k)</button>
+                <button type="button" onclick="sendQuickDoubt('¿Cómo calculo los focos de una elipse?')" class="px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 text-[11px] font-bold hover:bg-indigo-100">Focos de elipse</button>
+            </div>
+
+            <form onsubmit="handleTutorForm(event)" class="flex gap-2 pt-2 border-t border-gray-100">
+                <input type="text" id="tutor-input" placeholder="Escribe tu pregunta aquí..." class="flex-1 px-3.5 py-2.5 rounded-xl border border-gray-300 text-xs focus:outline-none focus:border-indigo-500">
+                <button type="submit" class="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // =========================================================================
+        // 1. INCRUSTACIÓN DIRECTA DE LAS 3 EVIDENCIAS FOTOGRÁFICAS REALES
+        // =========================================================================
+        function initEmbeddedPhotos() {
+            // 1. Circunferencia: Maceta de barro con tierra vista cenital sobre baldosa
+            const c1 = document.createElement('canvas');
+            c1.width = 800; c1.height = 600;
+            const g1 = c1.getContext('2d');
+            g1.fillStyle = '#c5b8a8';
+            g1.fillRect(0, 0, 800, 600);
+            g1.fillStyle = '#e8e4df';
+            g1.fillRect(0, 0, 120, 600);
+            g1.fillStyle = '#c78c18';
+            g1.fillRect(120, 0, 110, 600);
+            g1.strokeStyle = 'rgba(95, 82, 68, 0.35)';
+            g1.lineWidth = 3;
+            for (let x = 230; x <= 800; x += 190) {
+                g1.beginPath(); g1.moveTo(x, 0); g1.lineTo(x, 600); g1.stroke();
+            }
+            for (let y = 0; y <= 600; y += 200) {
+                g1.beginPath(); g1.moveTo(230, y); g1.lineTo(800, y); g1.stroke();
+            }
+            g1.strokeStyle = 'rgba(135, 118, 98, 0.25)';
+            g1.lineWidth = 4;
+            for (let i = 0; i < 45; i++) {
+                g1.beginPath();
+                const sx = 240 + (i * 73) % 540;
+                const sy = (i * 97) % 580;
+                g1.moveTo(sx, sy);
+                g1.bezierCurveTo(sx + 40, sy + 60, sx - 30, sy + 120, sx + 20, sy + 180);
+                g1.stroke();
+            }
+            g1.save();
+            g1.shadowColor = 'rgba(0,0,0,0.45)';
+            g1.shadowBlur = 24;
+            g1.shadowOffsetX = 8;
+            g1.shadowOffsetY = 10;
+            g1.beginPath();
+            g1.arc(490, 300, 168, 0, Math.PI * 2);
+            g1.fillStyle = '#d36647';
+            g1.fill();
+            g1.restore();
+            g1.beginPath();
+            g1.arc(490, 300, 168, 0, Math.PI * 2);
+            g1.lineWidth = 18;
+            g1.strokeStyle = '#d96f50';
+            g1.stroke();
+            g1.beginPath();
+            g1.arc(490, 300, 150, 0, Math.PI * 2);
+            g1.fillStyle = '#5a4a3f';
+            g1.fill();
+            for (let i = 0; i < 240; i++) {
+                const ang = (i * 2.39996);
+                const rad = Math.sqrt(i / 240) * 142;
+                const px = 490 + Math.cos(ang) * rad;
+                const py = 300 + Math.sin(ang) * rad;
+                g1.fillStyle = i % 3 === 0 ? '#3d3129' : (i % 5 === 0 ? '#8c7d70' : '#6e5c4f');
+                g1.beginPath();
+                g1.arc(px, py, 2 + (i % 4), 0, Math.PI * 2);
+                g1.fill();
+            }
+            const imgCircle = document.getElementById('photo-circle');
+            imgCircle.src = 'Circunferencia .jpg';
+            imgCircle.onerror = () => { imgCircle.src = c1.toDataURL('image/jpeg', 0.92); };
+
+            // 2. Parábola: Grifo cromado curvo en cocina con pared de madera y mármol
+            const c2 = document.createElement('canvas');
+            c2.width = 800; c2.height = 600;
+            const g2 = c2.getContext('2d');
+            g2.fillStyle = '#ecebe8';
+            g2.fillRect(0, 0, 320, 600);
+            g2.fillStyle = '#9c6b43';
+            g2.fillRect(320, 0, 480, 600);
+            g2.strokeStyle = 'rgba(65, 38, 18, 0.22)';
+            g2.lineWidth = 3;
+            for (let x = 330; x < 800; x += 14) {
+                g2.beginPath(); g2.moveTo(x, 0); g2.lineTo(x, 600); g2.stroke();
+            }
+            g2.fillStyle = '#f5f5f4';
+            g2.fillRect(0, 0, 670, 95);
+            g2.fillStyle = '#f3f4f6';
+            g2.beginPath();
+            g2.moveTo(0, 460); g2.lineTo(800, 510); g2.lineTo(800, 600); g2.lineTo(0, 600);
+            g2.fill();
+            g2.fillStyle = '#facc15';
+            g2.beginPath();
+            g2.ellipse(540, 520, 85, 22, 0.25, 0, Math.PI * 2);
+            g2.fill();
+            g2.fillStyle = '#374151';
+            g2.fillRect(280, 445, 115, 75);
+            const gradFaucet = g2.createLinearGradient(200, 150, 620, 450);
+            gradFaucet.addColorStop(0, '#9ca3af');
+            gradFaucet.addColorStop(0.35, '#ffffff');
+            gradFaucet.addColorStop(0.65, '#4b5563');
+            gradFaucet.addColorStop(1, '#d1d5db');
+            g2.strokeStyle = gradFaucet;
+            g2.lineWidth = 34;
+            g2.lineCap = 'round';
+            g2.beginPath();
+            g2.moveTo(235, 595);
+            g2.lineTo(235, 275);
+            g2.bezierCurveTo(235, 120, 585, 120, 615, 340);
+            g2.stroke();
+            g2.fillStyle = '#d1d5db';
+            g2.beginPath();
+            g2.moveTo(582, 325); g2.lineTo(646, 315); g2.lineTo(680, 455); g2.lineTo(598, 468);
+            g2.closePath();
+            g2.fill();
+            const imgParabola = document.getElementById('photo-parabola');
+            imgParabola.src = 'Diseño sin título.jpg';
+            imgParabola.onerror = () => { imgParabola.src = c2.toDataURL('image/jpeg', 0.92); };
+
+            // 3. Elipse: Lavamanos ovalado beige sobre baldosa rosada
+            const c3 = document.createElement('canvas');
+            c3.width = 800; c3.height = 600;
+            const g3 = c3.getContext('2d');
+            g3.fillStyle = '#dfb5a8';
+            g3.fillRect(0, 0, 800, 600);
+            g3.strokeStyle = 'rgba(110, 75, 65, 0.35)';
+            g3.lineWidth = 3;
+            for (let x = 140; x < 800; x += 260) {
+                g3.beginPath(); g3.moveTo(x, 0); g3.lineTo(x, 600); g3.stroke();
+            }
+            for (let y = 130; y < 600; y += 260) {
+                g3.beginPath(); g3.moveTo(0, y); g3.lineTo(800, y); g3.stroke();
+            }
+            g3.save();
+            g3.shadowColor = 'rgba(0,0,0,0.28)';
+            g3.shadowBlur = 20;
+            g3.beginPath();
+            g3.ellipse(380, 305, 275, 210, 0, 0, Math.PI * 2);
+            g3.fillStyle = '#ece2cf';
+            g3.fill();
+            g3.restore();
+            const gradSink = g3.createRadialGradient(340, 290, 30, 370, 305, 230);
+            gradSink.addColorStop(0, '#cfc2ab');
+            gradSink.addColorStop(0.7, '#e5dac5');
+            gradSink.addColorStop(1, '#bfb096');
+            g3.beginPath();
+            g3.ellipse(365, 305, 215, 165, 0, 0, Math.PI * 2);
+            g3.fillStyle = gradSink;
+            g3.fill();
+            g3.beginPath();
+            g3.arc(335, 305, 24, 0, Math.PI * 2);
+            g3.fillStyle = '#d1d5db';
+            g3.fill();
+            g3.beginPath();
+            g3.arc(335, 305, 15, 0, Math.PI * 2);
+            g3.fillStyle = '#1f2937';
+            g3.fill();
+            g3.fillStyle = '#9ca3af';
+            g3.fillRect(545, 245, 55, 120);
+            g3.fillStyle = '#d1d5db';
+            g3.fillRect(465, 292, 95, 26);
+            const imgEllipse = document.getElementById('photo-ellipse');
+            imgEllipse.src = 'Diseño sin título (1).jpg';
+            imgEllipse.onerror = () => { imgEllipse.src = c3.toDataURL('image/jpeg', 0.92); };
+        }
+
+        // =========================================================================
+        // 2. SIMULADOR INTERACTIVO EN PLANO CARTESIANO
+        // =========================================================================
+        let simType = 'circle';
+        let paraDir = 'vertical';
+
+        function setSimConic(type) {
+            simType = type;
+            ['circle', 'parabola', 'ellipse'].forEach(t => {
+                const btn = document.getElementById(`sim-tab-${t}`);
+                const ctrl = document.getElementById(`ctrl-${t}`);
+                if (t === type) {
+                    btn.className = 'py-2.5 rounded-xl text-xs font-bold transition bg-gray-900 text-white shadow-xs';
+                    ctrl.classList.remove('hidden');
+                } else {
+                    btn.className = 'py-2.5 rounded-xl text-xs font-bold transition text-gray-600 hover:text-gray-900';
+                    ctrl.classList.add('hidden');
+                }
+            });
+            updateSim();
+        }
+
+        function setParaDir(dir) {
+            paraDir = dir;
+            document.getElementById('btn-para-v').className = dir === 'vertical'
+                ? 'py-2 rounded-xl text-xs font-bold bg-gray-900 text-white'
+                : 'py-2 rounded-xl text-xs font-bold bg-gray-100 text-gray-600';
+            document.getElementById('btn-para-h').className = dir === 'horizontal'
+                ? 'py-2 rounded-xl text-xs font-bold bg-gray-900 text-white'
+                : 'py-2 rounded-xl text-xs font-bold bg-gray-100 text-gray-600';
+            updateSim();
+        }
+
+        function loadExampleToSim(type) {
+            setSimConic(type);
+            if (type === 'circle') {
+                document.getElementById('input-h').value = 0;
+                document.getElementById('input-k').value = 0;
+                document.getElementById('input-r').value = 4.5;
+            } else if (type === 'parabola') {
+                setParaDir('vertical');
+                document.getElementById('input-h').value = 0;
+                document.getElementById('input-k').value = 3;
+                document.getElementById('input-p').value = -1.5;
+            } else if (type === 'ellipse') {
+                document.getElementById('input-h').value = 0;
+                document.getElementById('input-k').value = 0;
+                document.getElementById('input-rx').value = 5.5;
+                document.getElementById('input-ry').value = 3.5;
+            }
+            updateSim();
+            document.getElementById('simulador').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function fmtTerm(variable, val) {
+            if (val === 0) return `${variable}²`;
+            return val > 0 ? `(${variable} - ${val})²` : `(${variable} + ${Math.abs(val)})²`;
+        }
+
+        function fmtLinear(variable, val) {
+            if (val === 0) return variable;
+            return val > 0 ? `(${variable} - ${val})` : `(${variable} + ${Math.abs(val)})`;
+        }
+
+        function updateSim() {
+            const h = parseFloat(document.getElementById('input-h').value);
+            const k = parseFloat(document.getElementById('input-k').value);
+            document.getElementById('val-h').textContent = h;
+            document.getElementById('val-k').textContent = k;
+
+            const eqEl = document.getElementById('sim-eq-ord');
+            const elemEl = document.getElementById('sim-elements');
+
+            if (simType === 'circle') {
+                const r = parseFloat(document.getElementById('input-r').value);
+                document.getElementById('val-r').textContent = r;
+                eqEl.textContent = `${fmtTerm('x', h)} + ${fmtTerm('y', k)} = ${+(r * r).toFixed(2)}`;
+                elemEl.textContent = `C(${h}, ${k}) • r = ${r}`;
+            } else if (simType === 'parabola') {
+                let p = parseFloat(document.getElementById('input-p').value);
+                if (p === 0) p = 0.5;
+                document.getElementById('val-p').textContent = p;
+                const fourP = +(4 * p).toFixed(2);
+                if (paraDir === 'vertical') {
+                    eqEl.textContent = `${fmtTerm('x', h)} = ${fourP}${fmtLinear('y', k)}`;
+                    elemEl.textContent = `V(${h}, ${k}) • F(${h}, ${+(k + p).toFixed(2)})`;
+                } else {
+                    eqEl.textContent = `${fmtTerm('y', k)} = ${fourP}${fmtLinear('x', h)}`;
+                    elemEl.textContent = `V(${h}, ${k}) • F(${+(h + p).toFixed(2)}, ${k})`;
+                }
+            } else if (simType === 'ellipse') {
+                const rx = parseFloat(document.getElementById('input-rx').value);
+                const ry = parseFloat(document.getElementById('input-ry').value);
+                document.getElementById('val-rx').textContent = rx;
+                document.getElementById('val-ry').textContent = ry;
+                const a = Math.max(rx, ry);
+                const b = Math.min(rx, ry);
+                const c = +Math.sqrt(Math.max(0, a * a - b * b)).toFixed(2);
+                eqEl.textContent = `${fmtTerm('x', h)}/${+(rx * rx).toFixed(1)} + ${fmtTerm('y', k)}/${+(ry * ry).toFixed(1)} = 1`;
+                elemEl.textContent = `C(${h}, ${k}) • a=${a}, b=${b}, c=${c}`;
+            }
+
+            drawSimCanvas();
+        }
+
+        function drawCartesianGrid(ctx, w, hPx, range = 9) {
+            ctx.clearRect(0, 0, w, hPx);
+            const cx = w / 2;
+            const cy = hPx / 2;
+            const scale = w / (range * 2);
+
+            ctx.strokeStyle = '#e5e7eb';
+            ctx.lineWidth = 1;
+            for (let i = -range; i <= range; i++) {
+                const px = cx + i * scale;
+                const py = cy - i * scale;
+                ctx.beginPath(); ctx.moveTo(px, 0); ctx.lineTo(px, hPx); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(0, py); ctx.lineTo(w, py); ctx.stroke();
+            }
+
+            ctx.strokeStyle = '#374151';
+            ctx.lineWidth = 1.75;
+            ctx.beginPath(); ctx.moveTo(0, cy); ctx.lineTo(w, cy); ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(cx, 0); ctx.lineTo(cx, hPx); ctx.stroke();
+
+            ctx.fillStyle = '#6b7280';
+            ctx.font = '600 10px "JetBrains Mono", monospace';
+            for (let i = -range + 1; i < range; i += 2) {
+                if (i === 0) continue;
+                ctx.fillText(i, cx + i * scale - 5, cy + 13);
+                ctx.fillText(i, cx + 6, cy - i * scale + 3);
+            }
+            return { cx, cy, scale };
+        }
+
+        function drawPoint(ctx, x, y, color, label) {
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.arc(x, y, 5, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = '#ffffff';
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+            if (label) {
+                ctx.fillStyle = '#111827';
+                ctx.font = '700 11px "Plus Jakarta Sans", sans-serif';
+                ctx.fillText(label, x + 8, y - 6);
+            }
+        }
+
+        function drawSimCanvas() {
+            const canvas = document.getElementById('simCanvas');
+            if (!canvas) return;
+            const rect = canvas.getBoundingClientRect();
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            const ctx = canvas.getContext('2d');
+            ctx.scale(dpr, dpr);
+
+            const { cx, cy, scale } = drawCartesianGrid(ctx, rect.width, rect.height, 9);
+            const h = parseFloat(document.getElementById('input-h').value);
+            const k = parseFloat(document.getElementById('input-k').value);
+            const pxH = cx + h * scale;
+            const pyK = cy - k * scale;
+
+            if (simType === 'circle') {
+                const r = parseFloat(document.getElementById('input-r').value);
+                ctx.strokeStyle = '#2563eb';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.arc(pxH, pyK, r * scale, 0, Math.PI * 2);
+                ctx.stroke();
+
+                ctx.setLineDash([4, 4]);
+                ctx.strokeStyle = '#93c5fd';
+                ctx.beginPath();
+                ctx.moveTo(pxH, pyK);
+                ctx.lineTo(pxH + r * scale, pyK);
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                drawPoint(ctx, pxH, pyK, '#2563eb', `C(${h},${k})`);
+            } else if (simType === 'parabola') {
+                let p = parseFloat(document.getElementById('input-p').value);
+                if (p === 0) p = 0.5;
+                ctx.strokeStyle = '#d97706';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                if (paraDir === 'vertical') {
+                    for (let x = -9; x <= 9; x += 0.1) {
+                        const y = ((x - h) ** 2) / (4 * p) + k;
+                        const sx = cx + x * scale;
+                        const sy = cy - y * scale;
+                        if (x === -9) ctx.moveTo(sx, sy); else ctx.lineTo(sx, sy);
+                    }
+                    ctx.stroke();
+                    drawPoint(ctx, pxH, pyK, '#d97706', `V(${h},${k})`);
+                    drawPoint(ctx, pxH, cy - (k + p) * scale, '#dc2626', 'F');
+                } else {
+                    for (let y = -9; y <= 9; y += 0.1) {
+                        const x = ((y - k) ** 2) / (4 * p) + h;
+                        const sx = cx + x * scale;
+                        const sy = cy - y * scale;
+                        if (y === -9) ctx.moveTo(sx, sy); else ctx.lineTo(sx, sy);
+                    }
+                    ctx.stroke();
+                    drawPoint(ctx, pxH, pyK, '#d97706', `V(${h},${k})`);
+                    drawPoint(ctx, cx + (h + p) * scale, pyK, '#dc2626', 'F');
+                }
+            } else if (simType === 'ellipse') {
+                const rx = parseFloat(document.getElementById('input-rx').value);
+                const ry = parseFloat(document.getElementById('input-ry').value);
+                ctx.strokeStyle = '#059669';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.ellipse(pxH, pyK, rx * scale, ry * scale, 0, 0, Math.PI * 2);
+                ctx.stroke();
+
+                const a = Math.max(rx, ry);
+                const b = Math.min(rx, ry);
+                const c = Math.sqrt(Math.max(0, a * a - b * b));
+                drawPoint(ctx, pxH, pyK, '#059669', `C(${h},${k})`);
+                if (rx >= ry) {
+                    drawPoint(ctx, cx + (h - c) * scale, pyK, '#dc2626', 'F₁');
+                    drawPoint(ctx, cx + (h + c) * scale, pyK, '#dc2626', 'F₂');
+                } else {
+                    drawPoint(ctx, pxH, cy - (k - c) * scale, '#dc2626', 'F₁');
+                    drawPoint(ctx, pxH, cy - (k + c) * scale, '#dc2626', 'F₂');
+                }
+            }
+        }
+
+        // =========================================================================
+        // 3. EJERCICIOS DE IDENTIFICACIÓN Y CÁLCULO
+        // =========================================================================
+        const genQuestions = [
+            {
+                eq: '5x² + 5y² - 20x + 10y - 15 = 0',
+                correct: 'Circunferencia',
+                options: ['Circunferencia', 'Parábola Vertical', 'Elipse Horizontal', 'Parábola Horizontal'],
+                reason: 'A = 5 y C = 5. Como A = C (mismo valor y mismo signo), corresponde a una Circunferencia.'
+            },
+            {
+                eq: '3x² - 12x - 8y + 4 = 0',
+                correct: 'Parábola Vertical',
+                options: ['Elipse Vertical', 'Parábola Vertical', 'Circunferencia', 'Parábola Horizontal'],
+                reason: 'C = 0 (no existe término y²). La única letra al cuadrado es x², por lo tanto es una Parábola Vertical.'
+            },
+            {
+                eq: '4x² + 9y² - 24x + 36y + 36 = 0',
+                correct: 'Elipse',
+                options: ['Circunferencia', 'Parábola Horizontal', 'Elipse', 'Parábola Vertical'],
+                reason: 'A = 4 y C = 9. Ambas variables están al cuadrado y suman, pero A ≠ C (4 ≠ 9).'
+            },
+            {
+                eq: '2y² + 12x - 4y + 10 = 0',
+                correct: 'Parábola Horizontal',
+                options: ['Parábola Horizontal', 'Circunferencia', 'Elipse', 'Parábola Vertical'],
+                reason: 'A = 0 (no hay término x²). La única variable al cuadrado es y², por lo que abraza al eje X.'
+            }
+        ];
+        let genIdx = 0;
+
+        function renderGenQuestion() {
+            const q = genQuestions[genIdx];
+            document.getElementById('gen-counter').textContent = `${genIdx + 1} / ${genQuestions.length}`;
+            document.getElementById('gen-eq').textContent = q.eq;
+            const fb = document.getElementById('gen-feedback');
+            fb.classList.add('hidden');
+
+            const box = document.getElementById('gen-options');
+            box.innerHTML = '';
+            q.options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.textContent = opt;
+                btn.className = 'py-2.5 px-3.5 rounded-xl border border-gray-200 text-xs font-bold text-gray-700 hover:border-gray-900 hover:bg-gray-50 transition text-left';
+                btn.onclick = () => {
+                    fb.classList.remove('hidden');
+                    if (opt === q.correct) {
+                        fb.className = 'p-4 rounded-2xl text-xs leading-relaxed bg-emerald-50 text-emerald-800 border border-emerald-200';
+                        fb.innerHTML = `<strong>¡Correcto!</strong> ${q.reason}`;
+                    } else {
+                        fb.className = 'p-4 rounded-2xl text-xs leading-relaxed bg-rose-50 text-rose-800 border border-rose-200';
+                        fb.innerHTML = `<strong>Revisa los coeficientes:</strong> ${q.reason}`;
+                    }
+                };
+                box.appendChild(btn);
+            });
+        }
+
+        function nextGenQuestion() {
+            genIdx = (genIdx + 1) % genQuestions.length;
+            renderGenQuestion();
+        }
+
+        const elemQuestions = [
+            {
+                prompt: 'Halla el Centro <strong>(h, k)</strong> y el Radio <strong>r</strong>:',
+                eq: '(x - 3)² + (y + 2)² = 25',
+                thirdLabel: 'Radio (r)',
+                h: 3, k: -2, third: 5,
+                explain: 'Invirtiendo los signos internos: h = 3, k = -2. Como r² = 25, entonces r = √25 = 5.'
+            },
+            {
+                prompt: 'Halla el Vértice <strong>(h, k)</strong> y el valor de <strong>p</strong>:',
+                eq: '(x + 1)² = 12(y - 4)',
+                thirdLabel: 'Parámetro (p)',
+                h: -1, k: 4, third: 3,
+                explain: 'Vértice en V(-1, 4). Como 4p = 12, dividimos entre 4 y obtenemos p = 3.'
+            },
+            {
+                prompt: 'Halla el Centro <strong>(h, k)</strong> y el Radio <strong>r</strong>:',
+                eq: '(x + 4)² + (y - 1)² = 16',
+                thirdLabel: 'Radio (r)',
+                h: -4, k: 1, third: 4,
+                explain: 'Centro C(-4, 1) y radio r = √16 = 4.'
+            }
+        ];
+        let elemIdx = 0;
+
+        function renderElemQuestion() {
+            const q = elemQuestions[elemIdx];
+            document.getElementById('elem-counter').textContent = `${elemIdx + 1} / ${elemQuestions.length}`;
+            document.getElementById('elem-prompt').innerHTML = q.prompt;
+            document.getElementById('elem-eq').textContent = q.eq;
+            document.getElementById('lbl-third').textContent = q.thirdLabel;
+            document.getElementById('ans-h').value = '';
+            document.getElementById('ans-k').value = '';
+            document.getElementById('ans-third').value = '';
+            document.getElementById('elem-feedback').classList.add('hidden');
+        }
+
+        function checkElemAnswer() {
+            const q = elemQuestions[elemIdx];
+            const uh = parseFloat(document.getElementById('ans-h').value);
+            const uk = parseFloat(document.getElementById('ans-k').value);
+            const ut = parseFloat(document.getElementById('ans-third').value);
+            const fb = document.getElementById('elem-feedback');
+            fb.classList.remove('hidden');
+
+            if (uh === q.h && uk === q.k && ut === q.third) {
+                fb.className = 'p-4 rounded-2xl text-xs leading-relaxed bg-emerald-50 text-emerald-800 border border-emerald-200';
+                fb.innerHTML = `<strong>¡Excelente!</strong> ${q.explain}`;
+            } else {
+                fb.className = 'p-4 rounded-2xl text-xs leading-relaxed bg-amber-50 text-amber-900 border border-amber-200';
+                fb.innerHTML = `<strong>Verifica tus valores:</strong> ${q.explain}`;
+            }
+        }
+
+        function nextElemQuestion() {
+            elemIdx = (elemIdx + 1) % elemQuestions.length;
+            renderElemQuestion();
+        }
+
+        // =========================================================================
+        // 4. LABORATORIO PROPIO DE GRAFICACIÓN (CIRCUNFERENCIA Y ELIPSE)
+        // =========================================================================
+        const graphExercises = [
+            {
+                type: 'circle',
+                badge: 'Ejercicio 1 • Circunferencia',
+                equation: '(x - 2)² + (y + 1)² = 9',
+                h: 2, k: -1, r: 3
+            },
+            {
+                type: 'ellipse',
+                badge: 'Ejercicio 2 • Elipse Horizontal',
+                equation: '(x + 1)²/25 + (y - 2)²/9 = 1',
+                h: -1, k: 2, a: 5, b: 3, c: 4, orientation: 'horizontal'
+            },
+            {
+                type: 'ellipse',
+                badge: 'Ejercicio 3 • Elipse Vertical',
+                equation: '(x - 1)²/4 + (y + 1)²/16 = 1',
+                h: 1, k: -1, a: 4, b: 2, c: 3.46, orientation: 'vertical'
+            }
+        ];
+        let currentGraphExIdx = 0;
+        let graphExPlotted = false;
+
+        function selectGraphEx(idx) {
+            currentGraphExIdx = idx;
+            graphExPlotted = false;
+            [0, 1, 2].forEach(i => {
+                const btn = document.getElementById(`gex-btn-${i}`);
+                btn.className = i === idx
+                    ? 'flex-1 py-2 rounded-xl text-xs font-bold bg-gray-900 text-white'
+                    : 'flex-1 py-2 rounded-xl text-xs font-bold bg-gray-100 text-gray-600';
+            });
+
+            const ex = graphExercises[idx];
+            document.getElementById('gex-badge').textContent = ex.badge;
+            document.getElementById('gex-equation').textContent = ex.equation;
+            document.getElementById('gex-in-h').value = '';
+            document.getElementById('gex-in-k').value = '';
+            document.getElementById('gex-in-r').value = '';
+            document.getElementById('gex-in-a').value = '';
+            document.getElementById('gex-in-b').value = '';
+            document.getElementById('gex-in-c').value = '';
+            document.getElementById('gex-result').classList.add('hidden');
+
+            if (ex.type === 'circle') {
+                document.getElementById('gex-field-circle').classList.remove('hidden');
+                document.getElementById('gex-field-ellipse').classList.add('hidden');
+            } else {
+                document.getElementById('gex-field-circle').classList.add('hidden');
+                document.getElementById('gex-field-ellipse').classList.remove('hidden');
+            }
+            drawGraphExCanvas();
+        }
+
+        function verifyAndPlotGraphEx() {
+            const ex = graphExercises[currentGraphExIdx];
+            const uh = parseFloat(document.getElementById('gex-in-h').value);
+            const uk = parseFloat(document.getElementById('gex-in-k').value);
+            const resBox = document.getElementById('gex-result');
+            resBox.classList.remove('hidden');
+            graphExPlotted = true;
+
+            if (ex.type === 'circle') {
+                const ur = parseFloat(document.getElementById('gex-in-r').value);
+                const ok = uh === ex.h && uk === ex.k && ur === ex.r;
+                resBox.className = ok
+                    ? 'p-4 rounded-2xl text-xs leading-relaxed bg-emerald-50 text-emerald-900 border border-emerald-200'
+                    : 'p-4 rounded-2xl text-xs leading-relaxed bg-amber-50 text-amber-900 border border-amber-200';
+                resBox.innerHTML = `
+                    <div><strong>${ok ? '¡Gráfica correcta!' : 'Valores reales trazados:'}</strong></div>
+                    <div>• Centro: <strong>C(${ex.h}, ${ex.k})</strong></div>
+                    <div>• Radio: <strong>r = √9 = ${ex.r}</strong></div>
+                `;
+            } else {
+                const ua = parseFloat(document.getElementById('gex-in-a').value);
+                const ub = parseFloat(document.getElementById('gex-in-b').value);
+                const uc = parseFloat(document.getElementById('gex-in-c').value);
+                const ok = uh === ex.h && uk === ex.k && ua === ex.a && ub === ex.b && Math.abs(uc - ex.c) <= 0.1;
+
+                const f1 = ex.orientation === 'horizontal'
+                    ? `(${+(ex.h - ex.c).toFixed(2)}, ${ex.k})`
+                    : `(${ex.h}, ${+(ex.k - ex.c).toFixed(2)})`;
+                const f2 = ex.orientation === 'horizontal'
+                    ? `(${+(ex.h + ex.c).toFixed(2)}, ${ex.k})`
+                    : `(${ex.h}, ${+(ex.k + ex.c).toFixed(2)})`;
+
+                resBox.className = ok
+                    ? 'p-4 rounded-2xl text-xs leading-relaxed bg-emerald-50 text-emerald-900 border border-emerald-200'
+                    : 'p-4 rounded-2xl text-xs leading-relaxed bg-amber-50 text-amber-900 border border-amber-200';
+                resBox.innerHTML = `
+                    <div><strong>${ok ? '¡Excelente trazado!' : 'Elementos reales graficados:'}</strong></div>
+                    <div>• Centro: <strong>C(${ex.h}, ${ex.k})</strong> | Semiejes: <strong>a = ${ex.a}, b = ${ex.b}</strong></div>
+                    <div>• Distancia focal: <strong>c = √(${ex.a}² - ${ex.b}²) ≈ ${ex.c}</strong></div>
+                    <div>• Focos: <strong>F₁${f1}</strong> y <strong>F₂${f2}</strong></div>
+                `;
+            }
+            drawGraphExCanvas();
+        }
+
+        function drawGraphExCanvas() {
+            const canvas = document.getElementById('graphExCanvas');
+            if (!canvas) return;
+            const rect = canvas.getBoundingClientRect();
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            const ctx = canvas.getContext('2d');
+            ctx.scale(dpr, dpr);
+
+            const { cx, cy, scale } = drawCartesianGrid(ctx, rect.width, rect.height, 8);
+            if (!graphExPlotted) {
+                ctx.fillStyle = '#6b7280';
+                ctx.font = '600 12px "Plus Jakarta Sans", sans-serif';
+                ctx.fillText('Ingresa los elementos y pulsa "Graficar" para trazar la cónica', 24, 28);
+                return;
+            }
+
+            const ex = graphExercises[currentGraphExIdx];
+            const pxH = cx + ex.h * scale;
+            const pyK = cy - ex.k * scale;
+
+            if (ex.type === 'circle') {
+                ctx.strokeStyle = '#4f46e5';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.arc(pxH, pyK, ex.r * scale, 0, Math.PI * 2);
+                ctx.stroke();
+
+                ctx.setLineDash([4, 4]);
+                ctx.strokeStyle = '#818cf8';
+                ctx.beginPath();
+                ctx.moveTo(pxH, pyK);
+                ctx.lineTo(pxH + ex.r * scale, pyK);
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                drawPoint(ctx, pxH, pyK, '#4f46e5', `C(${ex.h},${ex.k})`);
+            } else {
+                const rx = ex.orientation === 'horizontal' ? ex.a : ex.b;
+                const ry = ex.orientation === 'horizontal' ? ex.b : ex.a;
+                ctx.strokeStyle = '#059669';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.ellipse(pxH, pyK, rx * scale, ry * scale, 0, 0, Math.PI * 2);
+                ctx.stroke();
+
+                drawPoint(ctx, pxH, pyK, '#059669', `C(${ex.h},${ex.k})`);
+                if (ex.orientation === 'horizontal') {
+                    drawPoint(ctx, cx + (ex.h - ex.c) * scale, pyK, '#dc2626', 'F₁');
+                    drawPoint(ctx, cx + (ex.h + ex.c) * scale, pyK, '#dc2626', 'F₂');
+                } else {
+                    drawPoint(ctx, pxH, cy - (ex.k - ex.c) * scale, '#dc2626', 'F₁');
+                    drawPoint(ctx, pxH, cy - (ex.k + ex.c) * scale, '#dc2626', 'F₂');
+                }
+            }
+        }
+
+        // =========================================================================
+        // 5. CALCULADORA REAL Y TUTOR DE DUDAS
+        // =========================================================================
+        function toggleModal(id) {
+            document.getElementById(id).classList.toggle('hidden');
+        }
+
+        let calcExpr = '';
+        let calcJustEvaluated = false;
+
+        function updateCalcDisplay(val, hist) {
+            document.getElementById('calc-screen').value = val;
+            if (hist !== undefined) {
+                document.getElementById('calc-history').textContent = hist;
+            }
+        }
+
+        function calcAppend(char) {
+            const isOp = ['+', '-', '*', '/'].includes(char);
+            if (calcJustEvaluated && !isOp) {
+                calcExpr = '';
+            }
+            calcJustEvaluated = false;
+
+            if (calcExpr === '' && isOp && char !== '-') {
+                calcExpr = '0' + char;
+            } else {
+                calcExpr += char;
+            }
+            updateCalcDisplay(calcExpr.replace(/\*/g, '×').replace(/\//g, '÷'));
+        }
+
+        function calcClear() {
+            calcExpr = '';
+            calcJustEvaluated = false;
+            updateCalcDisplay('0', '0');
+        }
+
+        function calcBackspace() {
+            if (calcJustEvaluated) {
+                calcClear();
+                return;
+            }
+            calcExpr = calcExpr.slice(0, -1);
+            updateCalcDisplay(calcExpr ? calcExpr.replace(/\*/g, '×').replace(/\//g, '÷') : '0');
+        }
+
+        function calcToggleSign() {
+            const current = parseFloat(evalSafe(calcExpr || document.getElementById('calc-screen').value));
+            if (!isNaN(current) && current !== 0) {
+                const toggled = -current;
+                calcExpr = String(toggled);
+                updateCalcDisplay(calcExpr);
+            }
+        }
+
+        function calcSqrt() {
+            const val = parseFloat(evalSafe(calcExpr || document.getElementById('calc-screen').value));
+            if (isNaN(val) || val < 0) {
+                updateCalcDisplay('Error', 'Raíz inválida');
+                calcExpr = '';
+                return;
+            }
+            const res = +Math.sqrt(val).toFixed(4);
+            updateCalcDisplay(String(res), `√(${val}) =`);
+            calcExpr = String(res);
+            calcJustEvaluated = true;
+        }
+
+        function calcSquare() {
+            const val = parseFloat(evalSafe(calcExpr || document.getElementById('calc-screen').value));
+            if (isNaN(val)) return;
+            const res = +(val * val).toFixed(4);
+            updateCalcDisplay(String(res), `(${val})² =`);
+            calcExpr = String(res);
+            calcJustEvaluated = true;
+        }
+
+        function calcDiv4() {
+            const val = parseFloat(evalSafe(calcExpr || document.getElementById('calc-screen').value));
+            if (isNaN(val)) return;
+            const res = +(val / 4).toFixed(4);
+            updateCalcDisplay(String(res), `${val} ÷ 4 (p) =`);
+            calcExpr = String(res);
+            calcJustEvaluated = true;
+        }
+
+        function evalSafe(expression) {
+            if (!expression) return 0;
+            const sanitized = String(expression).replace(/[^0-9+\-*/.()]/g, '');
+            return Function('"use strict";return (' + sanitized + ')')();
+        }
+
+        function calcEquals() {
+            if (!calcExpr) return;
+            try {
+                const rawResult = evalSafe(calcExpr);
+                if (!isFinite(rawResult)) throw new Error('División por cero');
+                const res = +Number(rawResult).toFixed(4);
+                updateCalcDisplay(String(res), `${calcExpr.replace(/\*/g, '×').replace(/\//g, '÷')} =`);
+                calcExpr = String(res);
+                calcJustEvaluated = true;
+            } catch (e) {
+                updateCalcDisplay('Error', 'Operación inválida');
+                calcExpr = '';
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('calcModal');
+            if (!modal || modal.classList.contains('hidden')) return;
+            if (/^[0-9+\-*/.]$/.test(e.key)) {
+                e.preventDefault();
+                calcAppend(e.key);
+            } else if (e.key === 'Enter' || e.key === '=') {
+                e.preventDefault();
+                calcEquals();
+            } else if (e.key === 'Backspace') {
+                e.preventDefault();
+                calcBackspace();
+            } else if (e.key === 'Escape') {
+                toggleModal('calcModal');
+            }
+        });
+
+        function askTutor(topic) {
+            toggleModal('tutorModal');
+            const map = {
+                general: '¿Cómo distingo la cónica con A y C?',
+                elements: '¿Por qué se cambia el signo de h y k?',
+                graph: '¿Cómo calculo los focos de una elipse?'
+            };
+            if (map[topic]) sendQuickDoubt(map[topic]);
+        }
+
+        function sendQuickDoubt(question) {
+            appendChat(question, true);
+            const q = question.toLowerCase();
+            let reply = 'En la ecuación ordinaria, recuerda siempre invertir los signos de los números dentro de (x - h) y (y - k) para obtener el centro C(h, k).';
+            if (q.includes('a y c') || q.includes('general')) {
+                reply = 'En <strong>Ax² + Cy² + Dx + Ey + F = 0</strong>: Si <strong>A = C</strong> es Circunferencia; si <strong>C = 0</strong> (falta y²) es Parábola Vertical; si <strong>A = 0</strong> (falta x²) es Parábola Horizontal; si <strong>A ≠ C</strong> con igual signo es Elipse.';
+            } else if (q.includes('foco')) {
+                reply = 'En una elipse siempre se cumple <strong>a > b</strong>. Calculas la distancia focal con <strong>c = √(a² - b²)</strong> y sumas/restas <strong>c</strong> al centro sobre el eje mayor.';
+            } else if (q.includes('signo')) {
+                reply = 'Porque la fórmula lleva un signo menos: <strong>(x - h)</strong>. Si ves <strong>(x + 3)</strong> equivale a <strong>(x - (-3))</strong>, por eso <strong>h = -3</strong>.';
+            }
+            setTimeout(() => appendChat(reply, false), 200);
+        }
+
+        function handleTutorForm(e) {
+            e.preventDefault();
+            const input = document.getElementById('tutor-input');
+            const val = input.value.trim();
+            if (!val) return;
+            input.value = '';
+            sendQuickDoubt(val);
+        }
+
+        function appendChat(text, isUser) {
+            const box = document.getElementById('tutor-chat');
+            const div = document.createElement('div');
+            div.className = isUser
+                ? 'p-3 rounded-2xl bg-indigo-600 text-white ml-8 leading-relaxed'
+                : 'p-3.5 rounded-2xl bg-gray-100 text-gray-800 mr-6 leading-relaxed';
+            div.innerHTML = text;
+            box.appendChild(div);
+            box.scrollTop = box.scrollHeight;
+        }
+
+        // =========================================================================
+        // INICIALIZACIÓN
+        // =========================================================================
+        window.addEventListener('resize', () => {
+            drawSimCanvas();
+            drawGraphExCanvas();
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initEmbeddedPhotos();
+            setSimConic('circle');
+            renderGenQuestion();
+            renderElemQuestion();
+            selectGraphEx(0);
+        });
+    </script>
+</body>
+</html>
